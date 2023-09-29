@@ -1,0 +1,130 @@
+<html>
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            background-image: url('../src/Nature.jpg'); /* Replace 'background.jpg' with your image path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        #calculator-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            width: 300px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 48px;
+            height: 48px;
+            font-size: 18px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #menu {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+        }
+
+        #menu a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+
+        #menu a:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Simple Calculator</h1>
+    </header>
+    <div id="menu">
+        <a href="#" onclick="clearResult()">Clear</a>
+        <a href="https://www.geeksforgeeks.org/addition/" onclick="appendToResult('')">Add</a>
+        <a href="https://www.w3schools.com/googlesheets/google_sheets_subtraction.php" onclick="appendToResult('')">Subtract</a>
+        <a href="https://byjus.com/maths/multiplication/" onclick="appendToResult('')">Multiply</a>
+        <a href="https://www.splashlearn.com/math-vocabulary/division/division" onclick="appendToResult('/')">Divide</a>
+        <a href="#" onclick="calculateResult()">Calculate</a>
+    </div>
+ 
+<div id="calculator-container">
+    <h1>Simple Calculator</h1>
+    <input type="text" id="result" disabled>
+    <br>
+    <button onclick="appendToResult('1')">1</button>
+    <button onclick="appendToResult('2')">2</button>
+    <button onclick="appendToResult('3')">3</button>
+    <button onclick="appendToResult('+')">+</button>
+    <br>
+    <button onclick="appendToResult('4')">4</button>
+    <button onclick="appendToResult('5')">5</button>
+    <button onclick="appendToResult('6')">6</button>
+    <button onclick="appendToResult('-')">-</button>
+    <br>
+    <button onclick="appendToResult('7')">7</button>
+    <button onclick="appendToResult('8')">8</button>
+    <button onclick="appendToResult('9')">9</button>
+    <button onclick="appendToResult('*')">*</button>
+    <br>
+    <button onclick="appendToResult('0')">0</button>
+    <button onclick="clearResult()">C</button>
+    <button onclick="calculateResult()">=</button>
+    <button onclick="appendToResult('/')">/</button>
+</div>
+    <script>
+        function appendToResult(value) {
+            document.getElementById('result').value += value;
+        }
+
+        function clearResult() {
+            document.getElementById('result').value = '';
+        }
+
+        function calculateResult() {
+            const expression = document.getElementById('result').value;
+            try {
+                const result = eval(expression);
+                document.getElementById('result').value = result;
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
